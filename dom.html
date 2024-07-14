@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body onload="generateDom()">
+    <h1>Generador de Dominio</h1>
+    <ul id="dominios"></ul>
+    <script>
+        function generateDom() {
+            let pron = ['El', 'Un'];
+            let adj = ['Grande', 'Pequeño', 'Mediano'];
+            let sus = ['Mundo', 'Hogar', 'Animal', 'Sitio'];
+            let dom = ['.com', '.net', '.es', '.org', '.cl'];
+
+            let dominioList = [];
+
+            for (let p of pron) {
+                for (let a of adj) {
+                    for (let s of sus) {
+                        for (let d of dom) {
+
+                            let dominio = `${p}${a}${s}${d}`;
+                            dominioList.push(dominio);
+
+                            
+                        }
+                    }
+                }
+            }
+            
+
+            let ul = document.getElementById('dominios');
+            dominioList.forEach(dominio => {
+                let li = document.createElement('li');
+                li.textContent = dominio;
+                ul.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
